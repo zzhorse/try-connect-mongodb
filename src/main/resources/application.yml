@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+      database: mybite
+      #uri: mongodb://bite:bite@mongodb.system-bite-dev1.svc.cluster.local/bite?retryWrites=true&w=majority&maxPoolSize=10&minPoolSize=2
+      # 以上是在连接 URL 中指定参数的方式，支持的参数有限
+      uri: mongodb://bitex:bite6868@localhost:27017/admin?retryWrites=true&w=majority
+logging:
+  level:
+    org.mongodb.driver.connection: DEBUG
