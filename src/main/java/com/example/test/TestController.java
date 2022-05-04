@@ -21,6 +21,6 @@ public class TestController {
     @RequestMapping("/test")
     public long getCollectionCount() {
 //        return mongoTemplate.count(Query.query(Criteria.where("isDeleted").is(true)), "order");
-        return mongoTemplate.count(Query.query(Criteria.where("isDeleted").is(true)), "passport");
+        return mongoTemplate.count(new Query(), "startup_log");
     }
 }

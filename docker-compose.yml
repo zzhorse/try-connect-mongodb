@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  my-try:
+    build:
+      context: .
+    ports:
+      - 8000:8000
+      - 8081:8884
+    environment:
+      - MONGO_USER=root
+      - MONGO_PWD=horse123
+    volumes:
+      - ./:/program
+    depends_on:
+      - my-mongo
+    command: ./mvnw spring-boot:run -Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000"
+  my-mongo:
+    image: mongo:5.0.8
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=horse123
+    volumes:
+      - C:\Apps\mongo-5.0.8/db:/data/db
